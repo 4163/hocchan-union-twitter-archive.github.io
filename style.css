@@ -1,0 +1,1042 @@
+@font-face {
+	font-family: 'Twitter Chirp';
+	src: url('chirp-font/Chirp-Heavy.eot');
+	src: url('chirp-font/Chirp-Heavy.eot?#iefix') format('embedded-opentype'),
+		url('chirp-font/Chirp-Heavy.woff2') format('woff2'),
+		url('chirp-font/Chirp-Heavy.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Twitter Chirp';
+	src: url('chirp-font/Chirp-Bold.eot');
+	src: url('chirp-font/Chirp-Bold.eot?#iefix') format('embedded-opentype'),
+		url('chirp-font/Chirp-Bold.woff2') format('woff2'),
+		url('chirp-font/Chirp-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Twitter Chirp';
+	src: url('chirp-font/Chirp-Regular.eot');
+	src: url('chirp-font/Chirp-Regular.eot?#iefix') format('embedded-opentype'),
+		url('chirp-font/Chirp-Regular.woff2') format('woff2'),
+		url('chirp-font/Chirp-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Twitter Chirp';
+	src: url('chirp-font/Chirp-Medium.eot');
+	src: url('chirp-font/Chirp-Medium.eot?#iefix') format('embedded-opentype'),
+		url('chirp-font/Chirp-Medium.woff2') format('woff2'),
+		url('chirp-font/Chirp-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+:root {
+	--vh: 1vh;
+
+	 /* average height of every .header-follow for every twitter handle, including the handles page. */
+	--header-height: 54.67px;
+
+	--comment-color: #1d9bf0;
+	--retweet-color: #00ba7c;
+	--like-color: #f91880;
+
+	--titles: 20px;
+	--small: 13px;
+	--secondary-color: #536471;
+
+	--hover-color: #e7e7e8;
+
+	--default: 15px;
+	--kuronekounion: 15.1px;
+	--horieyui_staff: 15.2px;
+	--_10th_anniv: 15.01px;
+	--miss_monochro: var(--default);
+	--monochro_staff: var(--default);
+}
+
+html {
+	font-family: 'Twitter Chirp', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	font-size: var(--default);
+}
+
+html.kuronekounion {
+	font-size: var(--kuronekounion);
+}
+
+html.horieyui_staff {
+	font-size: var(--horieyui_staff);
+}
+
+html._10th_anniv {
+	font-size: var(--_10th_anniv);
+}
+
+html.miss_monochro {
+	font-size: var(--miss_monochro);
+}
+
+html.monochro_staff {
+	font-size: var(--monochro_staff);
+}
+
+body {
+	margin: 0;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.colored-link {
+	color: #f91880;
+	text-decoration: none;
+}
+
+.colored-link:hover {
+	text-decoration: underline;
+}
+
+.kuroneko {
+	height: 1em;
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+}
+
+
+/* Main/Body ================================================================================================= */
+/* =========================================================================================================== */
+
+
+.container {
+	max-width: 600px;
+	border-left: 1px solid #eff3f4;
+	border-right: 1px solid #eff3f4;
+	margin: 0 auto;
+	box-sizing: border-box;
+	background-color: #ffffff;
+	overflow: hidden;
+}
+
+/* Headers =================================================================================================== */
+/* =========================================================================================================== */
+
+.header-follow {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-width: calc(598px - 16px);
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 16px;
+	margin: 0 50%;
+    translate: -50%;
+	background-color: #FFFFFFCC;
+	backdrop-filter: blur(10px);
+	z-index: 998;
+	cursor: pointer;
+	user-select: none;
+	transition: transform 0.3s;
+}
+
+.header-follow > div {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.header-follow > div > a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 36.02px;
+	min-width: 36.02px;
+	height: 36.02px;
+	line-height: 0;
+}
+
+.header-follow > div > a::before {
+	content: '';
+	position: absolute;
+	left: 16px;
+	width: 36.02px;
+	height: 36.02px;
+	border-radius: 50%;
+	transition: background-color 0.3s;
+}
+
+.header-follow > div > a:active::before {
+	background-color: #cfd0d1;
+}
+
+.header-follow img {
+	width: 14.51px;
+	height: 14.51px;
+	transform: rotate(90deg);
+	filter: brightness(0);
+}
+
+.header-follow > div > div {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-width: 0;
+	margin-left: 36px;
+}
+
+.username {
+	font-size: var(--titles);
+	font-weight: bold;
+}
+
+.header-follow .username {
+	padding: 2px 0;
+	margin-right: 62px;
+}
+
+.posts {
+	font-size: var(--small);
+	color: var(--secondary-color);
+}
+
+.header-follow .username,
+.posts {
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.year {
+	display: none;
+	position: absolute;
+	top: 4px;
+	right: 16px;
+}
+
+#spacer {
+	transition: height 0.3s;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--header-height);
+	transition: height 0.3s;
+}
+
+.header img {
+	display: none;
+	position: absolute;
+}
+
+/* Profile Visuals =========================================================================================== */
+/* =========================================================================================================== */
+
+.wrapper:has(.banner) {
+	position: relative;
+    width: 100%;
+}
+
+.banner {
+	position: relative;
+    aspect-ratio: 598 / 199.33;
+    width: 100%;
+    background-color: #cfd9de;
+	cursor: pointer;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+div:has(> .profile) {
+	position: absolute;
+	margin-left: 14px;
+	width: calc(100% - 14px);
+	aspect-ratio: 584 / 141.5;
+    transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.profile {
+	display: flex;
+	width: fit-content;
+    height: 133.5px;
+	max-width: 100%;
+	max-height: 100%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+    border: 4px solid #ffffff;
+	background-color: #ffffff;
+	cursor: pointer;
+	transition: filter 0.3s;
+	pointer-events: auto;
+}
+
+.profile img {
+	max-height: 100%;
+	border-radius: 50%;
+	line-height: 0;
+	transition: filter 0.3s;
+}
+
+.profile:hover img {
+	filter: brightness(85%);
+}
+
+/* case when there's no profile picture, replace img with a div */
+
+.profile div {
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	line-height: 0;
+	transition: filter 0.3s;
+	background-color: #cfd9de;
+}
+
+/* ============================================================ */
+
+.profile-button {
+	width: auto;
+	max-height: 68.61px;
+	aspect-ratio: 598 / 68.61;
+	padding: 0 16px;
+	margin-top: 12px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.profile-button > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 34px;
+	height: 34px;
+	min-width: 34px;
+	border: 1px solid #cfd9de;
+	border-radius: 50%;
+	overflow: hidden;
+	transition: background-color 0.3s;
+	cursor: pointer;
+	z-index: 0;
+}
+
+.profile-button > div:hover {
+	background-color: var(--hover-color);
+	cursor: pointer;
+}
+
+/* Bio/Links ================================================================================================= */
+/* =========================================================================================================== */
+
+.bio {
+	padding: 16px;
+	padding-top: 4px;
+}
+
+.bio > div:not(.stats) {
+	margin-bottom: 12px;
+}
+
+.handles span:nth-of-type(2) {
+	color: var(--secondary-color);
+}
+
+.links {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.links img {
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+}
+
+.links > span {
+	display: flex;
+	align-items: center;
+	margin-right: 12px;
+	color: var(--secondary-color);
+}
+
+.links a:has(img) {
+	line-height: 0;
+}
+
+.links > span > img,
+.links > span > a > img {
+	margin-right: 4px;
+}
+
+.stats > a {
+	margin-right: 20px;
+}
+
+.stats > a:hover {
+	text-decoration: underline;
+}
+
+.stats > a > span {
+	color: var(--secondary-color);
+}
+
+/* Posts ===================================================================================================== */
+/* =========================================================================================================== */
+
+
+
+a:has(.post-section) {
+	text-decoration: none;
+}
+
+.post-section {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 53px;
+	border-bottom: 1px solid #eff3f4;
+	font-weight: bold;
+	transition: background-color 0.3s;
+}
+
+.post-section:hover {
+	background-color: var(--hover-color);
+}
+
+.post-section::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	width: 174px;
+	height: 4px;
+	border-radius: 2px;
+	background-color: #f91880;
+}
+
+.pinned {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 28px;
+	font-size: var(--small);
+	font-weight: bold;
+	color: var(--secondary-color);
+}
+
+.pinned > div {
+	display: flex;
+	justify-content: flex-end;
+	width: 40px;
+	min-width: 40px;
+	margin-right: 8px;
+}
+
+.pinned > div > img {
+	height: 1em;
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+}
+
+.tweet-block {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 12px 16px;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #eff3f4;
+	background-color: #ffffff;
+	transition: background-color 0.3s;
+}
+
+.tweet-block:hover {
+	background-color: #f7f7f7;
+	cursor: pointer;
+}
+
+.contents {
+	display: flex;
+	flex-direction: row;
+}
+
+.content-button {
+	position: absolute;
+	top: 5px;
+	right: 8px;
+	width: 34.75px;
+	height: 34.75px;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: background-color 0.3s;
+}
+
+.content-button:hover {
+	background-color: rgba(29, 155, 240, 0.135);
+}
+
+.content-button img {
+	/* #000000 to #536471 via filter */
+	filter: invert(38%) sepia(15%) saturate(632%) hue-rotate(164deg) brightness(91%) contrast(81%);
+	transition: filter 0.3s;
+}
+
+.content-button:hover img {
+	/* #000000 to #1d9bf0 via filter */
+	filter: invert(51%) sepia(80%) saturate(1473%) hue-rotate(178deg) brightness(91%) contrast(107%);
+}
+
+.tweet-block:has(.pinned) > .content-button {
+	top: calc(5px + 28px);
+}
+
+.post-profile {
+	height: fit-content;
+	border-radius: 50%;
+	line-height: 0;
+}
+
+.post-profile img {
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 50%;
+	transition: filter 0.3s;
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+}
+
+.post-profile:hover img {
+	filter: brightness(85%);
+}
+
+.tweet-contents {
+	width: 100%;
+	margin-left: 8px;
+}
+
+.tweet-header {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 2px;
+	container-type: inline-size;
+	color: var(--secondary-color);
+}
+
+.tweet-header > *:not(.date) {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.tweet-header * {
+	margin-right: 4px;
+}
+
+.tweet-header a:first-of-type {
+	font-weight: bold;
+}
+
+.tweet-header a:first-of-type:hover {
+	text-decoration: underline;
+}
+
+.date {
+	margin-right: 29px;
+	color: inherit;
+}
+
+.date:hover {
+	text-decoration: underline;
+}
+
+.media {
+	width: 100%;
+	margin-top: 12px;
+	line-height: 0;
+	overflow: hidden;
+}
+
+.media * {
+	width: calc(100% - 2px);
+	border-radius: 16px;
+	border: 1px solid #cfd9de;
+}
+
+/* Interactions ============================================================================================== */
+/* =========================================================================================================== */
+
+/* credits https://codepen.io/sosuke/pen/Pjoqqp ================= */
+/* CSS filter generator to convert from black to target hex color */
+
+.interactions {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 12px;
+}
+
+.interactions > a {
+	display: flex;
+	align-items: center;
+	color: var(--secondary-color);
+	transition: color 0.3s;
+}
+
+.interactions > a:hover {
+	text-decoration: none;
+}
+
+.interactions > a > * {
+	z-index: 1;
+}
+
+.interactions > a > span {
+	padding: 0 4px;
+	font-size: var(--small);
+	white-space: nowrap;
+}
+
+.interactions > a > img {
+	transition: color 0.3s-in-out;
+}
+
+.comment:hover {
+	color: var(--comment-color);
+}
+
+.comment img,
+.retweet img,
+.like img {
+	transition: filter 0.3s;
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+}
+
+.comment:hover img {
+	/* #536471 to #1d9bf0  via filter */
+	filter: invert(53%) sepia(99%) saturate(2775%) hue-rotate(179deg) brightness(98%) contrast(92%);
+}
+
+.comment::before,
+.retweet::before,
+.like::before {
+	content: "";
+	position: absolute;
+	width: 18.75px;
+	height: 18.75px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 7.375px var(--comment-color);
+	opacity: 0;
+	background-color: var(--comment-color);
+	transition: opacity 0.3s;
+}
+
+.comment:hover::before,
+.retweet:hover::before,
+.like:hover::before {
+	opacity: 0.135;
+}
+
+.retweet:hover {
+	color: var(--retweet-color);
+}
+
+.retweet:hover img {
+	/* #536471 to #00ba7c via filter */
+	filter: invert(45%) sepia(70%) saturate(1415%) hue-rotate(127deg) brightness(95%) contrast(103%);
+}
+
+.retweet::before {
+	box-shadow: 0 0 0 7.375px var(--retweet-color);
+	background-color: var(--retweet-color);
+}
+
+.like:hover {
+	color: var(--like-color);
+}
+
+.like:hover img {
+	/* #536471 to #f91880 via filter */
+	filter: invert(25%) sepia(100%) saturate(5355%) hue-rotate(322deg) brightness(102%) contrast(95%);
+}
+
+.like::before {
+	box-shadow: 0 0 0 7.375px var(--like-color);
+	background-color: var(--like-color);
+}
+
+/* Footer ==================================================================================================== */
+/* =========================================================================================================== */
+
+.footer {
+	padding: 16px 12px;
+	text-align: center;
+	user-select: none;
+	cursor: pointer;
+}
+
+.footer span {
+	user-select: auto;
+}
+
+#bottom {
+	width: 100%;
+}
+
+.copied-message {
+  position: absolute;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #ffffff;
+  background-color: var(--retweet-color);
+  transition: opacity 0.3s-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Navigation ================================================================================================ */
+/* =========================================================================================================== */
+
+.navigation {
+	position: fixed;
+	left: calc(50% - 564px);
+	width: 256px;
+	font-size: calc(var(--titles) + 1px);
+	user-select: none;
+	height: calc(var(--vh, 1vh) * 100);
+	height: 100dvh;
+}
+
+.navigation img {
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+}
+
+.navigation > .button {
+	border-radius: unset;
+}
+
+.button {
+	padding-bottom: 8px;
+	border-radius: 50px;
+	line-height: 0;
+	cursor: pointer;
+}
+
+.button > .wrapper {
+	display: flex;
+    align-items: center;
+	width: fit-content;
+	transform: translateY(4px);
+	padding: 12px;
+	border-radius: 50px;
+	transition: background-color 0.3s;
+}
+
+.button:hover > .wrapper,
+.logo:hover {
+	background-color: var(--hover-color);
+}
+
+.button > .wrapper > span {
+	margin: 0 16px 0 20px;
+}
+
+.logo {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	border-radius: 50%;
+	transition: background-color 0.3s;
+}
+
+.logo img {
+	border-radius: 50%;
+}
+
+.calendar {
+	display: none;
+}
+
+.years {
+	display: flex;
+	flex-direction: column;
+}
+
+.years .wrapper {
+	width: 100%;
+	height: 29px;
+	cursor: pointer;
+}
+.years .wrapper > a {
+	position: relative;
+	top: 2px;
+	padding: 0 16px;
+	transition:
+		background-color 0.3s,
+		margin-left 0.1s;
+}
+
+.years .wrapper:hover > a {
+	background-color: var(--hover-color);
+}
+
+.years .wrapper > .active {
+	margin-left: 15%;
+	background-color: var(--hover-color);
+}
+
+.years .wrapper:hover > a {
+	margin-left: 15%;
+}
+
+.years .wrapper > .inactive {
+	color: var(--secondary-color);
+	text-decoration: line-through;
+}
+
+.years .wrapper:hover > .inactive {
+	background-color: #F3F3F4;
+	margin-left: 5%;
+}
+
+.years > .close-button {
+	display: none;
+	right: 12px;
+	left: unset;
+	/* #040404 to #fbfbfb via filter */
+	filter: invert(98%) sepia(34%) saturate(296%) hue-rotate(207deg) brightness(117%) contrast(97%);
+	transition: filter 0.3s;
+}
+
+.years > .close-button:hover {
+	/* #040404 to #e8e8e8 via filter */
+	filter: invert(99%) sepia(1%) saturate(355%) hue-rotate(48deg) brightness(113%) contrast(82%);
+}
+
+.hocchan-union {
+	position: absolute;
+	bottom: 12px;
+	display: flex;
+	align-items: center;
+	width: calc(100% - 24px);
+	border-radius: 32px;
+	padding: 12px;
+	transition: background-color 0.3s;
+	background-color: #ffffffcc;
+}
+
+.hocchan-union:hover {
+	text-decoration: none;
+	background-color: var(--hover-color);
+}
+
+.hocchan-union img {
+	-webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+}
+
+.pfp {
+	border-radius: 50%;
+}
+
+.hocchan-union > div {
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	height: 40px;
+	padding: 0 12px;
+}
+
+.hocchan-union > div div {
+	display: flex;
+	align-items: center;
+	height: 50%;
+	font-size: var(--default);
+}
+
+.hocchan-union .username {
+	font-weight: bold;
+}
+
+.hocchan-union .handle {
+	color: var(--secondary-color);
+}
+
+.hocchan-union img:last-of-type {
+	position: absolute;
+	right: 12px;
+}
+
+/* Lightbox ================================================================================================== */
+/* =========================================================================================================== */
+
+.lightbox {
+	position: fixed;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 100vw;
+	height: calc(var(--vh, 1vh) * 100);
+	height: 100dvh;
+	background-color: rgba(0, 0, 0, 0.9412);
+	z-index: 999;
+}
+
+.lightbox-header {
+	flex-shrink: 0;
+	width: 100%;
+	height: 48px;
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+	overflow: hidden;
+}
+
+.img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.lightbox-interactions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: calc(100% - 32px);
+    height: 48px;
+	padding: 0 16px;
+    margin: 0 auto;
+	white-space: nowrap;
+}
+
+.lightbox-interactions > a {
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.lightbox-interactions > a:hover {
+	text-decoration: none;
+}
+
+.lightbox-interactions > a span {
+	padding: 0 4px;
+}
+
+.lightbox-interactions > a::before {
+	width: 22.5px;
+	height: 22.5px;
+}
+
+/* accurate hover colors, i.e: blue, green, red
+
+.lightbox-interactions > .comment::before {
+	box-shadow: 0 0 0 8.125px var(--comment-color);
+}
+
+.lightbox-interactions > .retweet::before {
+	box-shadow: 0 0 0 8.125px var(--retweet-color);
+}
+
+.lightbox-interactions > .like::before {
+	box-shadow: 0 0 0 8.125px var(--like-color);
+}
+
+.lightbox-interactions > .comment:hover img {
+	/* #ffffff to #1d9bf0 via filter 
+	filter: invert(51%) sepia(65%) saturate(748%) hue-rotate(170deg) brightness(90%) contrast(109%);
+}
+
+.lightbox-interactions > .retweet:hover img {
+	/* #ffffff to #00ba7c via filter 
+	filter: invert(50%) sepia(43%) saturate(1313%) hue-rotate(119deg) brightness(95%) contrast(101%);
+}
+
+.lightbox-interactions > .like:hover img {
+	/* #ffffff to #f91880 via filter 
+	filter: invert(47%) sepia(99%) saturate(7364%) hue-rotate(321deg) brightness(100%) contrast(96%);
+}
+
+*/
+
+/* twitter hover colors: white, blue, white */
+
+.lightbox .like:hover,
+.lightbox .comment:hover {
+	color: #ffffff;
+}
+
+.lightbox-interactions > .comment::before,
+.lightbox-interactions > .like::before {
+	box-shadow: 0 0 0 8.125px #ffffff;
+	background-color: #ffffff;
+}
+
+.lightbox-interactions > .comment:hover img,
+.lightbox-interactions > .like:hover img {
+	/* #ffffff to #ffffff via filter */
+	filter: brightness(100%);
+}
+
+.lightbox-interactions > .spacer {
+	width: 132px;
+	height: unset;
+}
+
+.close-button {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	width: 36px;
+	height: 36px;
+	background-color: #040404;
+	border: none;
+	border-radius: 50%;
+	background-image: url("./svg/86789a0e-3c5d-4401-bb21-e215c9b93eae.svg");
+	background-size: 55%;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: background-color 0.3s;
+	cursor: pointer;
+}
+
+.close-button:hover {
+	background-color: #171717;
+}

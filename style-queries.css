@@ -1,0 +1,475 @@
+/*
+* {
+	outline: 1px solid red;
+}
+*/
+
+.handles_page .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100%;
+}
+.handles_page .header-follow > div > div {
+	margin-left: unset;
+}
+.handles_page .tweet-header {
+	flex-direction: column;
+	width: fit-content;
+	container-type: unset;
+}
+.handles_page .post-section::after {
+	width: 164.84px;
+}
+.handles_page .hocchan-union {
+	width: fit-content;
+	right: 0;
+}
+.handles_page .hocchan-union img:last-of-type {
+    display: none;
+}
+.handles_page .logo {
+	position: absolute;
+	right: 0;
+}
+.handles_page .tweet-block {
+	user-select: none;
+	transition: background-color 0.1s;
+}
+
+/*
+for the container queries:
+this can be done by resizing the window width until the the date wraps down to the next line and grabbing the width of .tweet-header.
+use this as the minimum amount of text for when the date wraps down; '1:11 PM · Mar 11, 2011 JST', this is the shortest text combination in width because the font isn't monospaced.
+*/
+
+@container (max-width: 518px) {
+	.kuronekounion .tweet-header span:nth-of-type(2) {
+		opacity: 0;
+	}
+}
+@container (max-width: 423px) {
+	.horieyui_staff .tweet-header span:nth-of-type(2) {
+		opacity: 0;
+	}
+}
+@container (max-width: 339px) {
+	._10th_anniv .tweet-header span:nth-of-type(2) {
+		opacity: 0;
+	}
+}
+@container (max-width: 467px) {
+	.miss_monochro .tweet-header span:nth-of-type(2) {
+		opacity: 0;
+	}
+}
+@container (max-width: 512px) {
+	.monochro_staff .tweet-header span:nth-of-type(2) {
+		opacity: 0;
+	}
+}
+
+/*
+.tweet-header > a {
+	background: red;
+}
+.tweet-header span:nth-of-type(1) {
+	background: red;
+}
+.content-button {
+	background: blue;
+}
+*/
+
+.kuronekounion .tweet-header > span:first-of-type {
+	margin-right: 29px;
+}
+@media (max-width: 409px) and (pointer: fine) {
+	.kuronekounion .content-button {
+		display: none;
+	}
+}
+@media (max-width: 324px) and (pointer: coarse) {
+	.kuronekounion .content-button {
+		display: none;
+	}
+}
+
+@media (max-width: 405px) and (pointer: fine) {
+	.horieyui_staff .content-button {
+		display: none;
+	}
+}
+@media (max-width: 320px) and (pointer: coarse) {
+	.horieyui_staff .content-button {
+		display: none;
+	}
+}
+
+@media (max-width: 326px) and (pointer: fine) {
+	._10th_anniv .content-button {
+		display: none;
+	}
+}
+@media (max-width: 241px) and (pointer: coarse) {
+	._10th_anniv .content-button {
+		display: none;
+	}
+}
+
+@media (max-width: 446px) and (pointer: fine) {
+	.miss_monochro .content-button {
+		display: none;
+	}
+}
+@media (max-width: 361px) and (pointer: coarse) {
+	.miss_monochro .content-button {
+		display: none;
+	}
+}
+
+@media (max-width: 491px) and (pointer: fine) {
+	.monochro_staff .content-button {
+		display: none;
+	}
+}
+@media (max-width: 406px) and (pointer: coarse) {
+	.monochro_staff .content-button {
+		display: none;
+	}
+}
+
+
+@media (pointer: coarse) {
+	body {
+		overscroll-behavior: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+	.profile:hover img {
+		filter: unset;
+	}
+	.profile-button > div:hover,
+	.content-button:hover,
+	.button:hover > .wrapper,
+	.close-button:hover	{
+		background-color: unset;
+	}
+	.profile:active img {
+		filter: brightness(85%);
+		transition: filter 0.1s;
+	}
+	.profile-button > div:active {
+		background-color: #e7e7e8;
+		transition: background-color 0.1s;
+	}
+	.content-button:active {
+		background-color: rgba(29, 155, 240, 0.135);
+		transition: background-color 0.1s;
+	}
+	.content-button:hover img {
+		/* #000000 to #536471 via filter */
+		filter: invert(38%) sepia(15%) saturate(632%) hue-rotate(164deg) brightness(91%) contrast(81%);
+		transition: filter 0.1s;
+	}
+	.content-button img:active {
+		/* #000000 to #1d9bf0 via filter */
+		filter: invert(51%) sepia(80%) saturate(1473%) hue-rotate(178deg) brightness(91%) contrast(107%);
+		transition: filter 0.1s;
+	}
+	.button:active > .wrapper {
+		background-color: #cfd0d1;
+		transition: background-color 0.1s;
+	}
+	.years .wrapper > a:hover {
+		background-color: #ffffff;
+	}
+	.years .wrapper > a:active {
+		background-color: #e7e7e8;
+	}
+	.years  > .wrapper > .active:hover {
+		background-color: #e7e7e8;
+	}
+	.years  > .wrapper > .active:active {
+		background-color: #ffffff;
+	}
+	.years > .close-button:hover {
+		/* #040404 to #fbfbfb via filter */
+		filter: invert(98%) sepia(34%) saturate(296%) hue-rotate(207deg) brightness(117%) contrast(97%);
+	}
+	.years > .close-button:active {
+		/* #040404 to #e8e8e8 via filter */
+		filter: invert(99%) sepia(1%) saturate(355%) hue-rotate(48deg) brightness(113%) contrast(82%);
+		transition: filter 0.1s;
+	}
+	.close-button:active {
+		background-color: #171717;
+		transition: background 0.1s;
+	}
+	.handles_page .tweet-block:hover {
+		background-color: #ffffff;
+	}
+	.handles_page .tweet-block:active {
+		background-color: #f7f7f7;
+	}
+}
+
+@media (max-width: 1142px) {
+	.year {
+		display: unset;
+	}
+	.navigation {
+		width: 50px;
+		left: calc(50% - 368px);
+		z-index: 999;
+	}
+	.button img {
+		margin: 1px;
+	}
+	.button:has(img) span {
+		display: none;
+	}
+	.calendar {
+		display: block;
+	}
+	.years {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		width: 100vw;
+		height: calc(var(--vh, 1vh) * 100);
+		height: 100dvh;
+		background: #ffffffe6;
+		opacity: 0;
+		transition: opacity 0.3s;
+	}
+	.years > div:not(.close-button) {
+		height: 40px;
+	}
+	.years .wrapper {
+		width: fit-content;
+		height: 40px;
+		line-height: 0;
+	}
+	.years .wrapper:hover a,
+	.years .wrapper:hover > .inactive {
+		margin-left: unset;
+	}
+	.years .wrapper > a {
+		position: unset;
+		top: unset;
+		width: 50vw;
+		height: 40px;
+		min-width: 90px;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 20px;
+		background-color: #ffffff;
+		box-shadow:
+			2.5px 2.5px 0 lightslategrey,
+			-1px -1px 0 #ffaad2;
+	}
+	.years .wrapper > a > span {
+		font-size: 26px;
+	}
+	.years > .close-button {
+		display: block;
+	}
+	.years .wrapper > .active {
+		margin: unset;
+	}
+	.hocchan-union {
+		width: 40px;
+		padding: 5px;
+		z-index: -1;
+	}
+	.hocchan-union > div,
+	.hocchan-union img:last-of-type	{
+		display: none;
+	}
+	.pfp {
+		padding: 0;
+	}
+	.horieyui_staff .years > div:not(.close-button),
+	.kuronekounion .years > div:not(.close-button),
+	.miss_monochro .years > div:not(.close-button),
+	.monochro_staff .years > div:not(.close-button) {
+		display: flex;
+		flex-direction: row;
+		gap: 8px;
+	}
+	.horieyui_staff .years .wrapper > a,
+	.kuronekounion .years .wrapper > a,
+	.miss_monochro .years .wrapper > a,
+	.monochro_staff .years .wrapper > a {
+		width: calc(75vw / 2 - 4px); /* -2px to account for the 8px gap */
+	}
+}
+
+@media (max-width: 786px) {
+	.container {
+		margin-left: 88px;
+	}
+	.header-follow {
+		width: calc(100% - 16px - 88px);
+		margin: 0;
+		translate: calc(88px + 1px); /* accouting for the 1px border */
+	}
+	.navigation {
+		left: 19px;
+	}
+}
+
+@media (max-height: 768px) and (min-width: 1143px) {
+	/* additionaly redundancy */
+	.horieyui_staff .years,
+	.kuronekounion .years,
+	.miss_monochro .years,
+	.monochro_staff .years {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.horieyui_staff .years > div,
+	.kuronekounion .years > div,
+	.miss_monochro .years > div,
+	.monochro_staff .years > div {
+		width: 100%;
+	}
+	.horieyui_staff .years .wrapper,
+	.kuronekounion .years .wrapper,
+	.miss_monochro .years .wrapper,
+	.monochro_staff .years .wrapper {
+		display: inline-block;
+		width: calc(100% / 2.1);
+	}
+	.horieyui_staff .years .wrapper > .active,
+	.kuronekounion .years .wrapper > .active,
+	.miss_monochro .years .wrapper > .active,
+	.monochro_staff .years .wrapper > .active {
+		margin-left: 16px;
+	}
+	.horieyui_staff .years .wrapper > a,
+	.kuronekounion .years .wrapper > a,
+	.miss_monochro .years .wrapper > a,
+	.monochro_staff .years .wrapper > a {
+		position: relative;
+	}
+	/*
+	.horieyui_staff .years .wrapper {
+		background-color: red;
+	}
+	.horieyui_staff .button.bottom {
+		background-color: blue;
+	}
+	*/
+}
+
+@media (pointer: coarse) and (max-width: 630px) {
+	._10th_anniv .banner {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+	}
+	._10th_anniv .banner img {
+		width: 150%;
+		height: unset;
+	}
+}
+
+@media (max-width: 614px) { 
+	.container {
+        margin-left: 68px;
+    }
+	.header-follow {
+		width: calc(100% - 16px - 68px);
+		translate: calc(68px + 1px); /* accouting for the 1px border */
+	}
+	.navigation {
+        left: 9px;
+    }
+}
+
+@media (pointer: coarse) and (max-width: 614px) { 
+	._10th_anniv .banner img {
+		width: 100%;
+	}
+}
+
+@media (max-width: 610px) { 
+	._10th_anniv .banner img {
+		width: 150%;
+	}
+}
+
+@media (max-width: 499px) {
+	.profile {
+		border: 3px solid #ffffff;
+	}
+}
+
+@media (pointer: coarse) and (max-width: 499px) {
+	.header-follow {
+		width: calc(100vw - 16px);
+		translate: unset;
+	}
+	.container {
+		margin-left: 0;
+		border: 0;
+	}
+	.tweet-block:hover {
+		background-color: unset;
+	}
+    .navigation {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 52px;
+		border-top: 1px solid #eff3f4;
+		background: white;
+		transition: opacity 0.3s;
+    }
+	.logo {
+		display: none;
+	}
+	.button {
+		display: flex;
+		justify-content: center;
+		width: calc(100% / 4);
+		margin: 0;
+		border-radius: 0;
+	}
+	.button > .wrapper {
+		padding: 7.62px;
+	}
+	.years .wrapper > a {
+		width: 75vw;
+	}
+	.hocchan-union {
+		display: none;
+	}
+	.footer {
+		margin-bottom: 53px;
+		border-bottom: none;
+	}
+	.handles_page .footer {
+		margin-bottom: 0;
+	}
+	.handles_page .navigation {
+		display: none;
+	}
+}
+
+@media (max-width: 374.25px) {
+	.profile {
+		border: 2px solid #ffffff;
+	}
+}
