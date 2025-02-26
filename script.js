@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let lastScrollY = window.scrollY, currentTranslateY = 0, lastTimestamp = 0;
   let startY = 0, isSwipingDown = false, isRefreshing = false;
-  let maxSpacerHeight = headerFollow ? headerFollow.offsetHeight : 100;
   let lazyLoadingEnabled = true; // Ensure this is accessible globally
   let headerLock = false; // Added for headerLock flag
   let opacityLock = false; // Added for opacityLock flag
@@ -23,18 +22,23 @@ document.addEventListener('DOMContentLoaded', function () {
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-  
-  // Header Height Adjustment ==================================================================================
-  // ===========================================================================================================
-  if (headerFollow && header) {
-    const followHeight = headerFollow.offsetHeight;
-    header.style.height = `${followHeight}px`;
-  }
 
   const maxTweetElement = document.querySelector('meta[name="maxTweetIndex"]');
   const maxTweetIndex = maxTweetElement ? parseInt(maxTweetElement.getAttribute('content'), 10) : 3251;
 
   const mediaQuery = window.matchMedia("(pointer: coarse) and (max-width: 499px)");
+  
+  // Header Height Adjustment ==================================================================================
+  // ===========================================================================================================
+  function getHeaderHeight() {
+    const headerHeight = getComputedStyle(header).getPropertyValue('--header-height').trim();
+    return parseFloat(headerHeight);
+  }
+
+  // Define followHeight globally for use throughout the script
+  const followHeight = getHeaderHeight();
+
+  const maxSpacerHeight = followHeight;
 
   // Footer ====================================================================================================
   // ===========================================================================================================
@@ -373,12 +377,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (pullDistance > 0) {
           e.preventDefault();
-          spacerDiv.style.height = `${Math.min(pullDistance, maxSpacerHeight)}px`;
+          spacerDiv.style.height = `${Math.min(pullDistance, followHeight)}px`;
 
           if (refreshImg) {
             refreshImg.style.display = window.scrollY === 0 ? 'block' : 'none';
 
-            if (pullDistance >= maxSpacerHeight) {
+            if (pullDistance >= followHeight) {
               refreshImg.style.transition = 'transform 0.3s ease';
               refreshImg.style.transform = 'rotate(180deg)';
             } else {
@@ -391,9 +395,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener("touchend", () => {
       if (isSwipingDown) {
-        const currentHeight = parseInt(spacerDiv.style.height) || 0;
+        const currentHeight = parseFloat(spacerDiv.style.height) || 0;
         
-        if (currentHeight >= maxSpacerHeight && !isRefreshing) {
+        if (currentHeight >= followHeight && !isRefreshing) {
           isRefreshing = true;
           triggerRefresh();
         } else {
@@ -431,15 +435,15 @@ document.addEventListener('DOMContentLoaded', function () {
           observer.unobserve(entry.target); // Stop observing once reached
           setTimeout(() => {
             setLazyLoadingEnabled(true); // Re-enable lazy loading
-            setTimeout(() => {
-              lazyLoadMedia(); // Call lazy loading after a brief delay
-              setTimeout(() => {
-                window.scrollTo({
-                  top: 0,
-                  behavior: 'smooth'
-                });
-              }, 100);
-            }, 100);
+            // setTimeout(() => {
+            //   lazyLoadMedia(); // Call lazy loading after a brief delay
+            //   setTimeout(() => {
+            //     window.scrollTo({
+            //       top: 0,
+            //       behavior: 'smooth'
+            //     });
+            //   }, 100);
+            // }, 100);
           }, 100);
         }
         if (entry.target.classList.contains('footer') && entry.isIntersecting) {
@@ -447,15 +451,15 @@ document.addEventListener('DOMContentLoaded', function () {
           observer.unobserve(entry.target); // Stop observing first
           setTimeout(() => {
             setLazyLoadingEnabled(true); // Re-enable lazy loading
-            setTimeout(() => {
-              lazyLoadMedia(); // Call lazy loading after a brief delay
-              setTimeout(() => {
-                window.scrollTo({
-                  top: document.documentElement.scrollHeight,
-                  behavior: 'smooth'
-                });
-              }, 100);
-            }, 100);
+            // setTimeout(() => {
+            //   lazyLoadMedia(); // Call lazy loading after a brief delay
+            //   setTimeout(() => {
+            //     window.scrollTo({
+            //       top: document.documentElement.scrollHeight,
+            //       behavior: 'smooth'
+            //     });
+            //   }, 250);
+            // }, 100);
           }, 100);
         }
       });
@@ -662,7 +666,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Restore Scroll Position ===================================================================================
   // ===========================================================================================================
-  let showLogs = true; // Set to true to enable console logs
+  let showLogs = false; // Set to true to enable console logs
 
   function logTweetClassOnIntersect() {
     const tweetObserver = new IntersectionObserver((entries) => {

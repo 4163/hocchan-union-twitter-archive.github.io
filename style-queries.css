@@ -37,13 +37,26 @@
 	transition: background-color 0.1s;
 }
 
+.handles_page .header {
+    --header-height: 53.78px;
+}
+.kuronekounion .header,
+.horieyui_staff .header,
+.miss_monochro .header,
+.monochro_staff .header {
+    --header-height: 57.41px;
+}
+._10th_anniv .header {
+    --header-height: 51.05px;
+}
+
 /*
 for the container queries:
 this can be done by resizing the window width until the the date wraps down to the next line and grabbing the width of .tweet-header.
 use this as the minimum amount of text for when the date wraps down; '1:11 PM · Mar 11, 2011 JST', this is the shortest text combination in width because the font isn't monospaced.
 */
 
-@container (max-width: 518px) {
+@container (max-width: 518.2px) {
 	.kuronekounion .tweet-header span:nth-of-type(2) {
 		opacity: 0;
 	}

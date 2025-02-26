@@ -42,7 +42,8 @@
 	--vh: 1vh;
 
 	 /* average height of every .header-follow for every twitter handle, including the handles page. */
-	--header-height: 54.67px;
+	 /* 53.78, 57.41, 57.41, 51.05, 57.41, 57.41 */
+	--header-height: 55.745px;
 
 	--comment-color: #1d9bf0;
 	--retweet-color: #00ba7c;
